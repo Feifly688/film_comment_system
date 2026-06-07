@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.NoticeMapper">
+    <!--模糊查询所有-->
+    <select id="selectAll" resultType="com.example.entity.Notice">
+        select *
+        from notice
+        <where>
+            <if test="title != null and title != '' ">and title like concat('%',#{title}, '%')</if>
+        </where>
+        order by id desc
+    </select>
+    <!--新增数据-->
+    <insert id="insert" parameterType="com.example.entity.Notice">
+        insert into notice(title, content, time)
+        values (#{title}, #{content}, #{time})
+    </insert>
+    <!--修改数据-->
+    <update id="updateById" parameterType="com.example.entity.Notice">
+        update notice
+        set title      = #{title},
+            content    = #{content},
+            updateTime = #{updateTime}
+        where id = #{id}
+    </update>
+    <!--根据id删除-->
+    <delete id="deleteById" parameterType="com.example.entity.Notice">
+        delete
+        from notice
+        where id = #{id}
+    </delete>
+</mapper>

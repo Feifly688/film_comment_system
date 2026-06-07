@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-size: 14px;
+}
+
+a {
+    color: #1967e3;
+    text-decoration: none;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.line1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.line3 {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* 超出几行省略 */
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .el-image {
+        width: 200px; /* 适用于较大屏幕 */
+        height: 260px;
+    }
+
+    div[style*="flex: 1"] {
+        padding-left: 20px; /* 增加左边距以提供更多空间 */
+    }
+}
+/*长评中限制图片宽度*/
+.longComment img {
+     width: 100%;
+}
